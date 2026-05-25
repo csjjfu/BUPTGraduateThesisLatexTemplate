@@ -232,12 +232,14 @@
 \renewcommand{\thealgorithm}{\thechapter-\arabic{algorithm}}
 \renewcommand{\ALG@name}{算法}
 
-
 %% Tocbibind Package
 \RequirePackage{tocbibind}
 
 \AtEndOfClass{%
   \InputIfFileExists{config/buptthesis.cfg}{}{}}
+
+%% Linespacing Package
+\RequirePackage{setspace}
 
 %% -----------------------------------------------------------------
 
@@ -815,30 +817,36 @@
 
 %% Abstract
 \newenvironment{cnabstract}{%
-  %\chapter[\BUPT@label@abstract]{\BUPT@value@title}
-  \chapter[\BUPT@label@abstract]{}
-  \begin{center}
-    {\zihao{3}\heiti\centering\BUPT@label@abstract}
-  \end{center}\par
-  \zihao{4}
-  \vspace{1ex}
+  \addcontentsline{toc}{chapter}{\BUPT@label@abstract}
+  \markboth{\BUPT@label@abstract}{}
+  \thispagestyle{BUPThdrstyle}
+  % Title: 黑体三号, centered, 段前0行, 段后1行, 单倍行距
+  {\heiti\zihao{3}\centering\BUPT@label@abstract\par}
+  \vspace{16pt}
+  % Content: 四号宋体, justified, indent 2 chars, fixed 20pt
+  \songti\zihao{4}\setlength{\baselineskip}{20pt}
 }%
 {}
 \def\cnkeywords#1{%
-  \vspace{2ex}{\bfseries\BUPT@label@keywords}#1}
+  \par\vspace{20pt}
+  \zihao{4}\setlength{\baselineskip}{20pt}%
+  {\heiti\BUPT@label@keywords}{\songti #1\par}}
 
 \newenvironment{enabstract}{%
-  %\chapter[\BUPT@label@abstractEN]{\zihao{3}\bfseries \BUPT@value@titleEN}
-  \chapter[\BUPT@label@abstractEN]{}
-  \begin{center}
-    {\zihao{3}\bfseries\centering\BUPT@label@abstractEN}
-  \end{center}\par
-  \zihao{4}
-  \vspace{2ex}
+  \addcontentsline{toc}{chapter}{\BUPT@label@abstractEN}
+  \markboth{\BUPT@label@abstractEN}{}
+  \thispagestyle{BUPThdrstyle}
+  % Title: Times New Roman 三号 bold, centered, 段前0行, 段后2行, 单倍行距
+  {\bfseries\zihao{3}\centering\BUPT@label@abstractEN\par}
+  \vspace{32pt}
+  % Content: 四号, justified, indent 2 chars, fixed 20pt
+  \zihao{4}\setlength{\baselineskip}{20pt}
 }%
 {}
 \def\enkeywords#1{%
-  \vspace{4ex}{\textbf{\BUPT@label@keywordsEN}} #1}
+  \par\vspace{40pt}
+  \zihao{4}\setlength{\baselineskip}{20pt}%
+  {\bfseries\BUPT@label@keywordsEN} {#1\par}}
 
 %% Nomenclature
 \newenvironment{nomenclature}{%
