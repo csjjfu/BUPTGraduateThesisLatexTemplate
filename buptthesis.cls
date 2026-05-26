@@ -238,9 +238,6 @@
 \AtEndOfClass{%
   \InputIfFileExists{config/buptthesis.cfg}{}{}}
 
-%% Linespacing Package
-\RequirePackage{setspace}
-
 %% -----------------------------------------------------------------
 
 %% Styles setup
