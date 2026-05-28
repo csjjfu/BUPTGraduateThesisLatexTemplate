@@ -690,7 +690,8 @@
         \fi
       \end{tabular}}
     \vskip \stretch{0.5}
-    {\zihao{4}\bfseries Date~\BUPT@value@pageDay~~Month~\BUPT@value@pageMonth~~Year~\BUPT@value@pageYear}
+    % {\zihao{4}\bfseries Date~\BUPT@value@pageDay~~Month~\BUPT@value@pageMonth~~Year~\BUPT@value@pageYear}
+    {\zihao{4}\bfseries \BUPT@value@dateEN}
   \end{center}
   \cleardoublepage
 }%
