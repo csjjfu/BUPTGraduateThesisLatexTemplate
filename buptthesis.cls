@@ -691,7 +691,12 @@
       \end{tabular}}
     \vskip \stretch{0.5}
     % {\zihao{4}\bfseries Date~\BUPT@value@pageDay~~Month~\BUPT@value@pageMonth~~Year~\BUPT@value@pageYear}
-    {\zihao{4}\bfseries \BUPT@value@dateEN}
+    {\zihao{4}\bfseries 
+     \BUPT@value@pageDay~~~~
+     \ifcase\BUPT@value@pageMonth\or%
+        January\or February\or March\or April\or May\or June\or%
+        July\or August\or September\or October\or November\or December\fi~~~~
+     \BUPT@value@pageYear~~}
   \end{center}
   \cleardoublepage
 }%
